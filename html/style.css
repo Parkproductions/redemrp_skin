@@ -5,6 +5,10 @@
 			font-family: crock;
 			src: url(Hideout_Ghost_Condensed_Bold.otf);
 		}
+@font-face{
+			font-family: gidole;
+			src: url(gidole-regular.ttf);
+		}
 #creator{
 	margin-top: 6%;
 	width: 25%;
