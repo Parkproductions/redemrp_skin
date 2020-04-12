@@ -16,12 +16,14 @@ server_scripts {
 files{
 'html/creator.html',
 'html/crock.ttf',
+'html/Hideout_Ghost_Condensed_Bold.otf'
 'html/style.css',
 'html/js/jquery-1.4.1.min.js',
 'html/js/jquery-func.js',
 'html/js/jquery.jcarousel.pack.js',
 'html/js/listener.js',
 'html/images/bgPanel.png',
+'html/images/border.png',
 'html/images/eye1.png',
 'html/images/eye2.png',
 'html/images/eye3.png',
