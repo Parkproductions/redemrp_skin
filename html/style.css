@@ -61,6 +61,17 @@ button{
     		margin-bottom: 5px;
 
 }
+.number-spinner input{
+	width: inherit;
+    background: none;
+    border: none;
+    font-family: "gidole", gidole;
+    color: white;
+    font-size: 21px;
+    text-align: center;
+    margin-left: 8px;
+    margin-right: 8px;
+}
 .heading-border{
 	font-family: "crock", crock, serif;
     font-size: 36px;
