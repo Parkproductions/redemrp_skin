@@ -36,7 +36,7 @@
 		<div class="left_field">Body Type</div>
 		<div class="right_field number-spinner">
 			<a class="btn spinner" data-dir="dwn"><i class="fas fa-chevron-left"></i></a>
-				<input type="text" class="number-spinner" id="fat" name="fat" min="1" max="5" value="1" step="1">
+				<input type="text" class="number-spinner" id="fat" name="fat" min="1" max="5" value="1" step="1" onchange="changebody()">
 			<a class="btn spinner" data-dir="up"><i class="fas fa-chevron-right"></i></a>
  		</div>
 	</div>
@@ -190,15 +190,15 @@ $(".spinner").click(function (){
   btn.closest('.number-spinner').find('input').val(newVal);
   }
   document.getElementById('fat').value = newVal;
-  var grubosc = document.getElementById('fat').value;
-			var face = document.getElementById('face').value;
-			//console.log(grubosc);
-			$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: grubosc, face: face}));
+  			
 
 })
 function changebody() {
 				
-			
+			var grubosc = document.getElementById('fat').value;
+			var face = document.getElementById('face').value;
+			//console.log(grubosc);
+			$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: grubosc, face: face}));
 
 			
 		}
