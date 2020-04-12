@@ -9,6 +9,11 @@
 			font-family: gidole;
 			src: url(gidole-regular.ttf);
 		}
+button{
+	background:none;
+	border:none;
+	color:white;
+}
 #creator{
 	margin-top: 6%;
 	width: 25%;
@@ -21,6 +26,20 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+.rdr2_field_container{
+	display:block;
+	border-top:2px solid lightgray;
+	border-bottom:2px solid lightgray;
+	padding:5px 0 7px 0;
+	margin: 0 auto;
+	margin-top: 15%;
+}
+.rdr2_field{
+	background:url("images/field_bg.jpg") no-repeat;
+	height: 40px;
+    width: 354px;
+    margin-top: 12px; 
 }
 #creator2{
 	margin-top: 6%;
@@ -52,6 +71,9 @@
     width: 75%;
     margin: 5% auto 0%;
 }
+.less, .more{
+	font-size:20px;
+}
 .title{
 	font-family: "crock", crock, serif;
 	text-align:center;
@@ -60,27 +82,46 @@
 	color: white;
 }
 .plec{
-	font-family: "crock", crock, serif;
-	text-align:center;
-	font-size: 30px;
-	margin-top: 5%;
-	color: white;
+    font-family: "gidole", gidole;
+    text-align: left;
+    font-size: 21px;
+    margin-top: 0;
+    color: white;
+    padding-top: 15px;
+    padding-left: 20px;
+}
+.left_field{
+	display:inline-block;
+	float:left;
+	width:50%;
+}
+.right_field{
+	display:inline-block;
+	float:right;
+	width:50%;
 }
 .sex-item {
 	margin-left: 8px;
 	margin-right: 8px;
+	display:none;
+	width: inherit;
+    text-align: center;
 }
-
+.sex-button-selected{
+	color:#525558;
+}
 .sex-item input {
 	visibility: hidden;
 }
 
 .grubosc{
-	font-family: "crock", crock, serif;
-	text-align:center;
-	font-size: 30px;
-	margin-top: 5%;
+	font-family: "gidole", gidole;
+    text-align: left;
+    font-size: 21px;
+	margin-top: 0;
 	color: white;
+	padding-top: 15px;
+    padding-left: 20px;
 }
 .head{
 	font-family: "crock", crock, serif;
@@ -126,7 +167,8 @@
 }
 
 .sex-item-selected {
-	border-bottom: 3px solid #a90000;
+	/*border-bottom: 3px solid #a90000;*/
+	display:inline-block;
 }
 
 .selected {
@@ -158,15 +200,18 @@
 	color: white;
 }
 .submit{
-	width: 30%;
-	font-family: "crock", crock, serif;
 	text-align:center;
-	font-size: 30px;
 	margin-top: 5%;
 	border: 0;
-	border-radius: 8px;
-	background-color: #00380f;
-	color: white;
+	width: 14%;
+    height: 5vh;
+	font-family: "gidole", gidole;
+    font-size: 20px;
+    color: black;
+    border: 2px solid white;
+    background-color: white;
+    cursor: pointer;
+    font-weight: 900;
 }
 .reset{
 	width: 30%;
