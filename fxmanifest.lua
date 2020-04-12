@@ -25,6 +25,7 @@ files{
 'html/js/listener.js',
 'html/images/bgPanel.png',
 'html/images/border.png',
+'html/images/field_bg.jpg',
 'html/images/eye1.png',
 'html/images/eye2.png',
 'html/images/eye3.png',
