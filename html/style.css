@@ -14,6 +14,9 @@ button{
 	border:none;
 	color:white;
 }
+form{
+	margin-bottom: 5px;
+}
 body, div
 {
     -webkit-touch-callout: none;
@@ -41,15 +44,16 @@ body, div
 	display:block;
 	border-top:2px solid lightgray;
 	border-bottom:2px solid lightgray;
-	padding:5px 0 7px 0;
+	padding:5px 0 0px 0;
 	margin: 0 auto;
 	margin-top: 15%;
 }
 .rdr2_field{
 	background:url("images/field_bg.jpg") no-repeat;
-	height: 40px;
+	height: 33px;
     width: 354px;
     margin-top: 12px; 
+    background-size: contain;
 }
 #creator2{
 	margin-top: 6%;
@@ -91,6 +95,7 @@ body, div
     border-image: url("images/border.png") 30 stretch;
     width: 75%;
     margin: 5% auto 0%;
+    text-align: center;
 }
 .less, .more{
 	font-size:20px;
@@ -105,7 +110,7 @@ body, div
 .plec{
     font-family: "gidole", gidole;
     text-align: left;
-    font-size: 21px;
+    font-size: 18px;
     margin-top: 0;
     color: white;
     padding-top: 15px;
@@ -138,7 +143,7 @@ body, div
 .grubosc{
 	font-family: "gidole", gidole;
     text-align: left;
-    font-size: 21px;
+    font-size: 18px;
 	margin-top: 0;
 	color: white;
 	padding-top: 15px;
@@ -161,7 +166,7 @@ body, div
 .skincolor {
 	font-family: "gidole", gidole;
 	text-align: left;
-	font-size: 21px;
+	font-size: 18px;
 	margin-top: 0;
 	color: white;
 	padding-top: 15px;
@@ -242,13 +247,14 @@ body, div
     font-weight: 900;
 }
 .reset{
-	width: 30%;
+	width: 14%;
+    height: 5vh;
 	font-family: "crock", crock, serif;
 	text-align:center;
-	font-size: 30px;
+	font-size: 20px;
 	margin-top: 5%;
 	border: 0;
-	border-radius: 8px;
+	
 	background-color: #570000;
 	color: white;
 }
