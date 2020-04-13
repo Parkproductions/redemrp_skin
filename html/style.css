@@ -14,6 +14,16 @@ button{
 	border:none;
 	color:white;
 }
+body, div
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
 #creator{
 	margin-top: 6%;
 	width: 25%;
@@ -149,31 +159,37 @@ button{
 	color: white;
 }
 .skincolor {
-	font-family: "crock", crock, serif;
-	text-align:center;
-	font-size: 30px;
-	margin-top: 5%;
+	font-family: "gidole", gidole;
+	text-align: left;
+	font-size: 21px;
+	margin-top: 0;
 	color: white;
+	padding-top: 15px;
+    padding-left: 20px;
 }
 
 .skincolor-item, .eyecolor-item {
 	position: relative;
-	margin: 5px;
 	cursor: pointer;
+	display:none;
+	width: inherit;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
-.skincolor-item input, .eyecolor-item input, .sex-item span {
+.skincolor-item input, .eyecolor-item input /*.sex-item span*/ {
 	position: relative;
 	cursor: pointer;
 	width: 28px;
 	left: 0;
 	z-index: 0;
+	visibility: hidden;
 }
 
 .skincolor-item img, .eyecolor-item img, .sex-item input {
 	position: absolute;
-	left: 0;
-	top: 2;
+	left: 25px;
+    top: -10px;
 	z-index: 10;
 }
 
@@ -183,10 +199,11 @@ button{
 }
 
 .selected {
-	border: 3px solid #a90000;
-	-webkit-box-shadow:0px 0px 51px 0px #980000 ;
-	-moz-box-shadow:0px 0px 51px 0px #980000 ;
-	box-shadow:0px 0px 10px 0px #980000 ;
+	/*border: 3px solid #a90000;*/
+	/*-webkit-box-shadow:0px 0px 51px 0px #980000 ;*/
+	/*-moz-box-shadow:0px 0px 51px 0px #980000 ;*/
+	/*box-shadow:0px 0px 10px 0px #980000 ;*/
+	display:inline-block;
 }
 
 .eyecolor{
@@ -234,6 +251,11 @@ button{
 	border-radius: 8px;
 	background-color: #570000;
 	color: white;
+}
+p{
+	font-family: "gidole", gidole;
+	display:inline-block;
+	font-size:20px;
 }
 
  /* range */

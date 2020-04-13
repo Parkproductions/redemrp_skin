@@ -43,21 +43,25 @@
 
 
 	
-	<div class="skincolor selector" id="skincolor" >
-		Skin Color:</br>
-		<label id="skincolor-1" class="skincolor-item selected"><input type="radio" name="skin" checked value="1" onclick="changeskin()"><img src="images/skin1.png"></img></label>
-		<label id="skincolor-2" class="skincolor-item"><input type="radio" name="skin" value="2" onclick="changeskin()"><img src="images/skin2.png"></img></label>
-		<label id="skincolor-3" class="skincolor-item"><input type="radio" name="skin" value="3" onclick="changeskin()"><img src="images/skin3.png"></img></label>
-		<label id="skincolor-4" class="skincolor-item"><input type="radio" name="skin" value="4" onclick="changeskin()"><img src="images/skin4.png"></img></label>
-		<label id="skincolor-5" class="skincolor-item"><input type="radio" name="skin" value="5" onclick="changeskin()"><img src="images/skin5.png"></img></label>
-		<label id="skincolor-6" class="skincolor-item"><input type="radio" name="skin" value="6" onclick="changeskin()"><img src="images/skin6.png"></img></label>
+	<div class="skincolor selector rdr2_field" id="skincolor" >
+		<div class="left_field">Skin Color</div>
+		<div class="right_field">
+		<a class="left" onclick="changeskin(- 1)"><i class="fas fa-chevron-left"></i></a>	
+		<label id="skincolor-label-1" class="skincolor-item selected"><input id="skincolor-1" class="selected" type="radio" name="skin" checked value="1" ><img src="images/skin1.png"></img></label>
+		<label id="skincolor-label-2" class="skincolor-item"><input id="skincolor-2" type="radio" name="skin" value="2" onclick="changeskin()"><img src="images/skin2.png"></img></label>
+		<label id="skincolor-label-3" class="skincolor-item"><input id="skincolor-3" type="radio" name="skin" value="3" onclick="changeskin()"><img src="images/skin3.png"></img></label>
+		<label id="skincolor-label-4" class="skincolor-item"><input id="skincolor-4" type="radio" name="skin" value="4" onclick="changeskin()"><img src="images/skin4.png"></img></label>
+		<label id="skincolor-label-5" class="skincolor-item"><input id="skincolor-5" type="radio" name="skin" value="5" onclick="changeskin()"><img src="images/skin5.png"></img></label>
+		<label id="skincolor-label-6" class="skincolor-item"><input id="skincolor-6" type="radio" name="skin" value="6" onclick="changeskin()"><img src="images/skin6.png"></img></label>
+		<a class="right" onclick="changeskin(1)"><i class="fas fa-chevron-right"></i></a>	
+		</div>
 	</div>
 
 	</br>
 	<div class="done">
 		<input type="reset" class="reset" value="Reset">
 		<!-- <input type="button" class="submit" value="Next" onclick="next()"> -->
-		<button class="submit" value="Next" onclick="next()"><i class="fas fa-level-down-alt fa-rotate-90"></i></button>
+		<p style="margin-right:10px;">Next</p><button class="submit" value="Next" onclick="next()"><i class="fas fa-level-down-alt fa-rotate-90"></i></button>
 	</div>
 
 </div>
@@ -98,7 +102,7 @@
 var body = document.getElementById('body');
 var creator = document.getElementById('creator');
 var creator2 = document.getElementById('creator2');
-creator.style.visibility = 'block';
+creator.style.visibility = 'hidden';
 document.getElementById('creator2').style.display = 'none';
 var skincolor = document.getElementById('skincolor').value;
 
@@ -168,6 +172,8 @@ function changesex(value) {
 			}, 1500);
 		}
 
+// changebody()
+
 $(".spinner").click(function (){
 	var btn = $(this);    
     oldValue = btn.closest('.number-spinner').find('input').val().trim(),
@@ -198,12 +204,7 @@ $(".spinner").click(function (){
 
 })
 
-function changebody() {
-				
-			
 
-			
-		}
 function changeface() {
 			var face = document.getElementById('face').value;
 			//console.log(face);
@@ -215,17 +216,32 @@ function changefacesize() {
 			//console.log(face);
 			$.post('http:/redemrp_skin/changeFacesize', JSON.stringify({faces: faces, face: face}));
 		}
-function changeskin() {
-			var skin = document.querySelector('input[name="skin"]:checked').value;
+
+// changeskin()
+
+function changeskin(val) {
+			var skin = document.querySelector('input[name="skin"].selected').value;
+			var newskin = parseInt(skin) + val
+			console.log(newskin);
+			if(skin == 1 && val == - 1){
+				newskin = skin;
+			}
+			else if(skin == 6 && val == 1){
+				newskin = skin;
+			}
+			else{
 			for (let i = 1; i <= 6; i++) {
 				if (document.getElementById('skincolor-' + i).classList.contains('selected'))
 					document.getElementById('skincolor-' + i).classList.remove('selected');
+					document.getElementById('skincolor-label-' + i).classList.remove('selected');
 			}
 
-			document.getElementById('skincolor-' + skin).classList.add('selected');
-			//console.log(skin);
-			$.post('http:/redemrp_skin/changeSkin', JSON.stringify(skin));
+			document.getElementById('skincolor-' + newskin).classList.add('selected');
+			document.getElementById('skincolor-label-' + newskin).classList.add('selected');
+			}
+			$.post('http:/redemrp_skin/changeSkin', JSON.stringify(newskin));
 		}
+
 function changeeye() {
 			var eye = document.querySelector('input[name="eye"]:checked').value;
 			for (let i = 1; i <= 5; i++) {
