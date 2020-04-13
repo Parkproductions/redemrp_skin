@@ -221,8 +221,9 @@ function changefacesize() {
 
 function changeskin(val) {
 			var skin = document.querySelector('input[name="skin"].selected').value;
+			console.log(skin);
 			var newskin = parseInt(skin) + val
-			console.log(newskin);
+			
 			if(skin == 1 && val == - 1){
 				newskin = skin;
 			}
