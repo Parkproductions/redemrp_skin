@@ -65,31 +65,48 @@
 	</div>
 
 </div>
-<div id="creator2"><div class="title">Character Creator</div>
-	<div class="head selector">
-		Face:</br>
-		<input type="range" id="face" name="face" min="1" max="124" value="1" step="1" onchange="changeface()">
+<div id="creator2"><div class="heading-border">Appearance</div>
+<div class="rdr2_field_container">
+	<div class="head selector rdr2_field">
+		<div class="left_field">Face</div>
+		<div class="right_field">
+			<a class="left" onclick="changeface(- 1)"><i class="fas fa-chevron-left"></i></a>
+				<input type="text" class="" id="face" name="face" min="1" max="124" value="1" step="1" onchange="changeface()">
+			<a class="left" onclick="changeface(1)"><i class="fas fa-chevron-right"></i></a>
+		</div>
 	</div>
 	
-	<div class="facesize selector">
-		Face Size:</br>
-		<input type="range" id="faces" name="faces" min="1" max="13" value="1" step="1" onchange="changefacesize()">
+	<div class="facesize selector rdr2_field">
+		<div class="left_field">Face Size</div>
+		<div class="right_field">
+		<a class="left" onclick="changefacesize(- 1)"><i class="fas fa-chevron-left"></i></a>
+			<input type="text" id="faces" name="faces" min="1" max="13" value="1" step="1">
+		<a class="left" onclick="changefacesize(1)"><i class="fas fa-chevron-right"></i></a>
+		</div>
 	</div>
 	
-	<div class="eyecolor selector" id="eyecolor">
-		Eye Color:</br>
-		<label id="eyecolor-1" class="eyecolor-item selected"><input type="radio" name="eye" checked value="1" onclick="changeeye()"><img src="images/eye1.png"></img></label>
-		<label id="eyecolor-2" class="eyecolor-item"><input type="radio" name="eye" value="2" onclick="changeeye()"><img src="images/eye2.png"></img></label>
-		<label id="eyecolor-3" class="eyecolor-item"><input type="radio" name="eye" value="3" onclick="changeeye()"><img src="images/eye3.png"></img></label>
-		<label id="eyecolor-4" class="eyecolor-item"><input type="radio" name="eye" value="4" onclick="changeeye()"><img src="images/eye4.png"></img></label>
-		<label id="eyecolor-5" class="eyecolor-item"><input type="radio" name="eye" value="5" onclick="changeeye()"><img src="images/eye5.png"></img></label>
+	<div class="eyecolor selector rdr2_field" id="eyecolor">
+		<div class="left_field">Eye Color</div>
+		<div class="right_field">
+		<a class="left" onclick="changeeye(- 1)"><i class="fas fa-chevron-left"></i></a>	
+		<label id="eyecolor-label-1" class="eyecolor-item selected"><input id="eyecolor-1" class="selected" type="radio" name="eye" checked value="1" onclick="changeeye()"><img src="images/eye1.png"></img></label>
+		<label id="eyecolor-label-2" class="eyecolor-item"><input id="eyecolor-2" type="radio" name="eye" value="2" onclick="changeeye()"><img src="images/eye2.png"></img></label>
+		<label id="eyecolor-label-3" class="eyecolor-item"><input id="eyecolor-3" type="radio" name="eye" value="3" onclick="changeeye()"><img src="images/eye3.png"></img></label>
+		<label id="eyecolor-label-4" class="eyecolor-item"><input id="eyecolor-4" type="radio" name="eye" value="4" onclick="changeeye()"><img src="images/eye4.png"></img></label>
+		<label id="eyecolor-label-5" class="eyecolor-item"><input id="eyecolor-5" type="radio" name="eye" value="5" onclick="changeeye()"><img src="images/eye5.png"></img></label>
+		<a class="right" onclick="changeeye(1)"><i class="fas fa-chevron-right"></i></a>
+		</div>	
 	</div>
 
-	<div class="hair selector">
-		Hair:</br>
-		<input type="range" id="hair" name="hair" min="1" max="430" value="1" step="1" onchange="changehair()">
+	<div class="hair selector rdr2_field">
+		<div class="left_field">Hair</div>
+		<div class="right_field">
+			<a class="left" onclick="changehair(- 1)"><i class="fas fa-chevron-left"></i></a>
+				<input type="text" id="hair" name="hair" min="1" max="430" value="1" step="1" onchange="changehair()">
+			<a class="left" onclick="changehair(1)"><i class="fas fa-chevron-right"></i></a>
+		</div>
 	</div>
-
+</div>
 <div class="done">
 		<input type="button" class="reset" value="Go Back" onclick="goback()">
 		<input type="submit" class="submit" value="Save" onclick="save()">
@@ -102,7 +119,7 @@
 var body = document.getElementById('body');
 var creator = document.getElementById('creator');
 var creator2 = document.getElementById('creator2');
-creator.style.visibility = 'hidden';
+creator.style.visibility = 'visible';
 document.getElementById('creator2').style.display = 'none';
 var skincolor = document.getElementById('skincolor').value;
 
@@ -195,24 +212,42 @@ $(".spinner").click(function (){
     		}
   		}
   		btn.closest('.number-spinner').find('input').val(newVal);
-  	}
-  	
+  	}	
   	document.getElementById('fat').value = newVal;
   	var grubosc = document.getElementById('fat').value;
 	var face = document.getElementById('face').value;
 	$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: grubosc, face: face}));
 
 })
+function changeface(btnval) {
+			var face = document.querySelector('input[name="face"]').value;
+			var face_val = btnval || 0;
+			var new_face = parseInt(face) + face_val
 
+			if(face == 1 && face_val == -1){
+				new_face = face;
+			} 
+			else if(face == 124 && face_val == 1){
+				new_face = face;
+			}
 
-function changeface() {
-			var face = document.getElementById('face').value;
-			//console.log(face);
+			document.getElementById('face').value = new_face;
 			$.post('http:/redemrp_skin/changeFace', JSON.stringify(face));
 		}
-function changefacesize() {
+function changefacesize(btnval) {
 			var faces = document.getElementById('faces').value;
+			var faces_val = btnval || 0;
+			var new_faces = parseInt(faces) + faces_val
+
+			if(faces == 1 && faces_val == -1){
+				new_faces = faces;
+			}
+			else if(faces == 13 && faces_val == 1){
+				new_faces = faces;
+			}
+
 			var face = document.getElementById('face').value;
+			document.getElementById('faces').value = new_faces;
 			//console.log(face);
 			$.post('http:/redemrp_skin/changeFacesize', JSON.stringify({faces: faces, face: face}));
 		}
@@ -243,20 +278,44 @@ function changeskin(btnval) {
 			$.post('http:/redemrp_skin/changeSkin', JSON.stringify(newskin));
 		}
 
-function changeeye() {
-			var eye = document.querySelector('input[name="eye"]:checked').value;
+function changeeye(btnval) {
+			var eye = document.querySelector('input[name="eye"].selected').value;
+			var eye_val = btnval || 0;
+			var neweye = parseInt(eye) + eye_val
+
+			if(eye == 1 && eye_val == - 1){
+				neweye = eye;
+			}
+			else if(eye == 5 && eye_val == 1){
+				neweye = eye;
+			}
+			else{
 			for (let i = 1; i <= 5; i++) {
 				if (document.getElementById('eyecolor-' + i).classList.contains('selected'))
 					document.getElementById('eyecolor-' + i).classList.remove('selected');
+					document.getElementById('eyecolor-label-' + i).classList.remove('selected');
 			}
 
-			document.getElementById('eyecolor-' + eye).classList.add('selected');
-			$.post('http:/redemrp_skin/changeEye', JSON.stringify(eye));
+			document.getElementById('eyecolor-' + neweye).classList.add('selected');
+			document.getElementById('eyecolor-label-' + neweye).classList.add('selected');
+			}
+			$.post('http:/redemrp_skin/changeEye', JSON.stringify(neweye));
 		}
-function changehair() {
-			var hair = document.getElementById('hair').value;
+function changehair(btnval) {
+			var hair = document.querySelector('input[name="hair"]').value;
+			var hair_val = btnval || 0;
+			var newhair = parseInt(hair) + hair_val
+
+			if(hair == 1 && hair_val == -1){
+				newhair = hair;
+			}
+			else if(hair == 430 && hair_val == 1){
+				newhair = hair;
+			}
+
+			document.getElementById('hair').value = newhair;
 			//console.log(hair);
-			$.post('http:/redemrp_skin/changeHair', JSON.stringify(hair));
+			$.post('http:/redemrp_skin/changeHair', JSON.stringify(newhair));
 		}
 function save() {
 	var sex1 = document.querySelector('input[name="sex"]:checked').value;
