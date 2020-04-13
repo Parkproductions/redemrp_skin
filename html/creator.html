@@ -36,7 +36,7 @@
 		<div class="left_field">Body Type</div>
 		<div class="right_field number-spinner">
 			<a class="btn spinner" data-dir="dwn"><i class="fas fa-chevron-left"></i></a>
-				<input type="text" class="number-spinner" id="fat" name="fat" min="1" max="5" value="1" step="1" onchange="changebody()">
+				<input type="text" class="number-spinner" id="fat" name="fat" min="1" max="5" value="1" step="1">
 			<a class="btn spinner" data-dir="up"><i class="fas fa-chevron-right"></i></a>
  		</div>
 	</div>
@@ -102,7 +102,7 @@
 var body = document.getElementById('body');
 var creator = document.getElementById('creator');
 var creator2 = document.getElementById('creator2');
-creator.style.visibility = 'hidden';
+creator.style.visibility = 'visible';
 document.getElementById('creator2').style.display = 'none';
 var skincolor = document.getElementById('skincolor').value;
 
@@ -219,11 +219,11 @@ function changefacesize() {
 
 // changeskin()
 
-function changeskin(val) {
+function changeskin(btnval) {
 			var skin = document.querySelector('input[name="skin"].selected').value;
-			val = 0;
+			var val = btnval;
 			var newskin = parseInt(skin) + val
-			
+			console.log(val);
 			if(skin == 1 && val == - 1){
 				newskin = skin;
 			}
