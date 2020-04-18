@@ -140,7 +140,7 @@ function reset() {
 function next() {
 	document.getElementById('creator').style.display = 'none';
 	document.getElementById('creator2').style.display = 'flex';
-	changeface();
+	/*changeface();*/
 }
 
 function goback() {
@@ -215,8 +215,8 @@ $(".spinner").click(function (){
   	}	
   	document.getElementById('fat').value = newVal;
   	var grubosc = document.getElementById('fat').value;
-	/*var face = document.getElementById('face').value;*/
-	$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: grubosc/*, face: face*/}));
+	var face = document.getElementById('face').value;
+	$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: grubosc, face: face}));
 
 })
 function changeface(btnval) {
