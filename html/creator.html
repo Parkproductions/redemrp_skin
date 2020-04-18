@@ -185,7 +185,7 @@ function changesex(value) {
 			document.getElementById('sex_button_' + value).classList.add('sex-button-selected');
 			$.post('http:/redemrp_skin/changeSex', JSON.stringify(sex));
 			setTimeout(function(){
-			$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: 1, face: 1}));
+			$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: 1/*, face: 1*/}));
 			}, 1500);
 		}
 
@@ -215,8 +215,8 @@ $(".spinner").click(function (){
   	}	
   	document.getElementById('fat').value = newVal;
   	var grubosc = document.getElementById('fat').value;
-	var face = document.getElementById('face').value;
-	$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: grubosc, face: face}));
+	/*var face = document.getElementById('face').value;*/
+	$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: grubosc/*, face: face*/}));
 
 })
 function changeface(btnval) {
