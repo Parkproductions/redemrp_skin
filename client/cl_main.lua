@@ -433,13 +433,13 @@ end)
 RegisterNUICallback('changeBody', function(data, cb)
 local size = data.grubosc
 local face = data.face
---[[local twarz = '0x' .. maleheads[tonumber(face)]
-local twarz2 = '0x' .. femaleheads[tonumber(face)]--]]
+local twarz = '0x' .. maleheads[tonumber(face)]
+local twarz2 = '0x' .. femaleheads[tonumber(face)]
 if sex == 1 then
 	Citizen.InvokeNative(0xA5BAE410B03E7371 ,PlayerPedId(),math.floor(size+123),true,true)
-	--[[Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(),tonumber(twarz),true,true,true)--]]
+	Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(),tonumber(twarz),true,true,true)
 else
 	Citizen.InvokeNative(0xA5BAE410B03E7371 ,PlayerPedId(),math.floor(size+109),true,true)
-	--[[Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(),tonumber(twarz2),true,true,true)--]]
+	Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(),tonumber(twarz2),true,true,true)
 end
 end)

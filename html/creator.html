@@ -202,6 +202,7 @@ function changebody(btnval){
 	}
 
 	document.getElementById('fat').value = new_body;
+	console.log(new_body);
 	$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: new_body, face: 1}));
 }
 
