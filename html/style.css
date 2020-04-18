@@ -68,7 +68,7 @@ body, div
 	flex-direction: column;
 	justify-content: center;
 }
-#face, #faces, #hair{
+#face, #faces, #hair, #fat{
 	width: inherit;
     background: none;
     border: none;
