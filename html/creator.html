@@ -205,35 +205,6 @@ function changebody(btnval){
 	$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: new_body, face: 1}));
 }
 
-$(".spinner").click(function (){
-	var btn = $(this);    
-    oldValue = btn.closest('.number-spinner').find('input').val().trim(),
-    newVal = 0;
-
-  	if (oldValue == 5 && btn.attr('data-dir') == 'up'){
-  		newVal = parseInt(oldValue) + 0;
-  	}
-  	else{
-  		if (btn.attr('data-dir') == 'up') {
-    		newVal = parseInt(oldValue) + 1;
-  		} 
-  		else{
-    		if (oldValue > 1) {
-      			newVal = parseInt(oldValue) - 1;
-    		} 
-    		else {
-      			newVal = 1;
-    		}
-  		}
-  		btn.closest('.number-spinner').find('input').val(newVal);
-  	}	
-  	document.getElementById('fat').value = newVal;
-  	var grubosc = document.getElementById('fat').value;
-	var face = document.getElementById('face').value;
-	console.log('face', face);
-	$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: grubosc, face: face}));
-
-})
 function changeface(btnval) {
 			var face = document.querySelector('input[name="face"]').value;
 			var face_val = btnval || 0;
