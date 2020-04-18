@@ -216,6 +216,7 @@ $(".spinner").click(function (){
   	document.getElementById('fat').value = newVal;
   	var grubosc = document.getElementById('fat').value;
 	var face = document.getElementById('face').value;
+	console.log('face', face);
 	$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: grubosc, face: face}));
 
 })
