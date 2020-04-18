@@ -189,7 +189,21 @@ function changesex(value) {
 			}, 1500);
 		}
 
-// changebody()
+function changebody(btnval){
+	var body = document.querySelector('input[name="fat"]').value;
+	var body_val = btnval || 0;
+	var new_body = parseInt(body) + body_val
+
+	if(body == 1 && body_val == -1){
+		new_body = body;
+	} 
+	else if(body == 5 && body_val == 1){
+		new_body = body;
+	}
+
+	document.getElementById('fat').value = new_body;
+	$.post('http:/redemrp_skin/changeBody', JSON.stringify({grubosc: new_body, face: 1}));
+}
 
 $(".spinner").click(function (){
 	var btn = $(this);    
