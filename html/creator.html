@@ -128,7 +128,7 @@ function openCreator(show) {
 			changesex(1);
 			changeskin();
 			changebody();
-			changeface();
+
 }
 
 function reset() {
@@ -220,7 +220,8 @@ function changeface(btnval) {
 			}
 
 			document.getElementById('face').value = new_face;
-			$.post('http:/redemrp_skin/changeFace', JSON.stringify(face));
+			console.log(new_face);
+			$.post('http:/redemrp_skin/changeFace', JSON.stringify(new_face));
 		}
 function changefacesize(btnval) {
 			var faces = document.getElementById('faces').value;
