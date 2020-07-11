@@ -88,6 +88,7 @@ end)
 RegisterNetEvent('redemrp_skin:loadskin')
 AddEventHandler('redemrp_skin:loadskin', function(source, args, rawCommand)
     TriggerServerEvent("redemrp_skin:loadSkin", function(cb)
+    end)
 end)
 
 RegisterNetEvent('redemrp_skin:applySkin')
