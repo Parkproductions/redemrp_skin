@@ -28,6 +28,7 @@ end)
 
 RegisterServerEvent('redemrp_skin:loadSkin')
 AddEventHandler('redemrp_skin:loadSkin', function()
+	print('made it!')
 local _source = source
 	TriggerEvent('redemrp:getPlayerFromId', source, function(user)
 		local identifier = user.getIdentifier()
