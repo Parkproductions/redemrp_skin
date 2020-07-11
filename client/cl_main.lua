@@ -85,6 +85,11 @@ RegisterCommand("loadskin", function(source, args, rawCommand)
 	 end)
 end)
 
+RegisterNetEvent('redemrp_skin:loadskin')
+AddEventHandler('redemrp_skin:loadskin', function(source, args, rawCommand)
+    TriggerServerEvent("redemrp_skin:loadSkin", function(cb)
+end)
+
 RegisterNetEvent('redemrp_skin:applySkin')
 AddEventHandler('redemrp_skin:applySkin', function(skin)
     local _skin = json.decode(skin)
